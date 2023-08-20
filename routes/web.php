@@ -17,5 +17,6 @@ use App\Http\Controllers\ComponentController;
 Route::get('/', function () {
     return view('welcome');
 });
-
-Route::get('/get-components', [ComponentController::class, 'getComponents']);
+Route::group(['middleware'  =>  'token'], function () {
+    Route::get('/get-components', [ComponentController::class, 'getComponents']);
+});
