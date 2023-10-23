@@ -9,6 +9,10 @@ class ComponentController extends Controller
     public function getComponents()
     {
         $components = \App\Models\Component::all();
-        return response()->json($components);
+
+        return response([
+            'status' => 'success',
+            'data' => $components
+        ]);
     }
 }
